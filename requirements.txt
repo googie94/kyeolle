@@ -1,5 +1,6 @@
 Django>=4.0.0
-djangorestframework==3.13.1
+djangorestframework>=3.9.0,<3.10.0
+mysqlclient==2.1.0
 
-flake8>=3.6.0,<3.7.0
+flake8==3.7.8
 python-decouple>=3.6
