@@ -10,5 +10,31 @@ services:
       - ./kyeolle:/kyeolle
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DJANGO_SECRET_KEY=supersecret
+      - DEBUG=1
+      - MYSQL_HOST=db
+      - MYSQL_NAME=database
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=secretpassword
+      - MYSQL_PORT=3306
+    depends_on:
+      - db
     # env_file:
     #   - ./.config_secret/.env
+
+  db:
+    image: mysql:8.0
+    restart: always
+    container_name: database-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_DATABASES=database
+      - MYSQL_ROOT_PASSWORD=secretpassword
+      - TZ=Asia/Seoul
+
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
