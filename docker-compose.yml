@@ -18,13 +18,15 @@ services:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=Googie)126
       - MYSQL_PORT=3306
+    links:
+      - db
     depends_on:
       - db
     # env_file:
     #   - ./.config_secret/.env
 
   db:
-    image: mysql:8.0
+    image: mariadb
     restart: always
     command: --lower_case_table_names=1
     container_name: database-mysql
@@ -34,8 +36,8 @@ services:
       - MYSQL_DATABASES=database
       - MYSQL_ROOT_PASSWORD=Googie)126
       - TZ=Asia/Seoul
-    volumes:
-      - /Users/Shared/data/mysql-test:/var/lib/mysql
+    # volumes:
+    #   - /Users/Shared/data/mysql-test:/var/lib/mysql
 
     # command:
     #   - --character-set-server=utf8mb4
