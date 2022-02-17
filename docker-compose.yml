@@ -28,7 +28,7 @@ services:
     restart: always
     container_name: database-mysql
     ports:
-      - "3307:3306"
+      - "3306:3306"
     environment:
       - MYSQL_DATABASES=database
       - MYSQL_ROOT_PASSWORD=Googie)126
