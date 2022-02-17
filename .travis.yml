@@ -4,8 +4,11 @@ python:
 
 services:
   - docker
-
-before_script: pip install docker-compose
+  - mysql
+sudo: true
+before_script: 
+  - pip install docker-compose
+  - bash .travis.install-mysql-5.7.sh
 
 script:
   - docker-compose run web sh -c "python manage.py test && flake8"
