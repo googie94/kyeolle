@@ -13,10 +13,10 @@ services:
     environment:
       - DJANGO_SECRET_KEY=supersecret
       - DEBUG=1
-      - MYSQL_HOST=db
+      - MYSQL_HOST=database.crchdrmuaucg.ap-northeast-2.rds.amazonaws.com
       - MYSQL_NAME=database
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=secretpassword
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=Googie)126
       - MYSQL_PORT=3306
     depends_on:
       - db
@@ -31,7 +31,7 @@ services:
       - "3307:3306"
     environment:
       - MYSQL_DATABASES=database
-      - MYSQL_ROOT_PASSWORD=secretpassword
+      - MYSQL_ROOT_PASSWORD=Googie)126
       - TZ=Asia/Seoul
 
     command:
