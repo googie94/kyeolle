@@ -26,7 +26,7 @@ services:
   db:
     image: mysql:8.0
     restart: always
-    com0mand: --lower_case_table_names=1
+    command: --lower_case_table_names=1
     container_name: database-mysql
     ports:
       - "3307:3306"
